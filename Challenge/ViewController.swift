@@ -8,6 +8,8 @@
 
 //FItTKUKCOCK
 
+//HardCOCK
+
 import UIKit
 import Firebase
 import FirebaseFirestore
