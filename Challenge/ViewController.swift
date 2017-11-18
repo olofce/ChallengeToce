@@ -7,11 +7,37 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class ViewController: UIViewController {
 
+    var db:Firestore!
+    var utmaningsArray = [Utmaning]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
+        
+        let newChallenge = Utmaning(name: "Olof", text: "Utmaning")
+        
+        var ref:DocumentReference? = nil
+        ref = self.db.collection("Utmaningar").addDocument(data: newChallenge.dictionary){
+            
+            error in
+            
+            if let error = error {
+                
+                print("error adding to db")
+            }else { print ("doc added")
+            }
+            
+            
+            }
+            
+            
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
